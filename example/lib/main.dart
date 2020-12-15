@@ -75,7 +75,9 @@ class _MyAppState extends State<MyApp> {
         print('result from test-returnStream=$result');
         if (result == 0) {
           printData('เชื่อมต่อสำเร็จ');
-          printBarcode('2800099058214');
+          printData('ทดสอบ Fujunn');
+//          printBarcode('2800099058214');
+          printQrCode('V3/gvCzfffBkayHuhdlruF6ns6Klkllx');
           Btprinter.fujunClosePort();
         } else if (result == 7) {
           print('try again');
@@ -84,13 +86,15 @@ class _MyAppState extends State<MyApp> {
   }
 
   void connectZenpert() {
-    setDevice('DC:0D:30:F5:73:8A');
+    setDevice('DC:0D:30:F3:02:CF');
     _connectListener =
         Btprinter.getZenpertBtPrinterStream_returnStream('functionA')
           ..listen((result) {
             print('result from test-returnStream=$result');
             if (result == 0) {
               printZenpertText('เชื่อมต่อสำเร็จ');
+              printZenpertText('ทดสอบ Zenpert');
+              printZenpertQrCode('V3/gvCzfffBkayHuhdlruF6ns6Klkllx');
               Btprinter.zenpertClosePort();
             } else if (result == 7) {
               print('try again');
